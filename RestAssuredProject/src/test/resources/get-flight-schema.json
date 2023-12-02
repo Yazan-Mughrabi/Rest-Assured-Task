@@ -1,0 +1,168 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "next": {
+        "type": "object",
+        "properties": {
+          "nid": {
+            "type": "string"
+          },
+          "get": {
+            "type": "array",
+            "items": [
+              {
+                "type": "object",
+                "properties": {
+                  "cid": {
+                    "type": "string"
+                  },
+                  "info": {
+                    "type": "object",
+                    "properties": {
+                      "uid": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "chnr": {
+                        "type": ["string","integer"]
+                      }
+                    },
+                    "required": [
+                      "uid",
+                      "code",
+                      "chnr"
+                    ]
+                  }
+                },
+                "required": [
+                  "cid",
+                  "info"
+                ]
+              }
+            ]
+          },
+          "let": {
+            "type": "array",
+            "items": {}
+          },
+          "hashedKey": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nid",
+          "get",
+          "let",
+          "hashedKey"
+        ]
+      },
+      "request": {
+        "type": "object",
+        "properties": {
+          "searchType": {
+            "type": "string"
+          },
+          "isRoundTrip": {
+            "type": "boolean"
+          },
+          "leg": {
+            "type": "array",
+            "items": [
+              {
+                "type": "object",
+                "properties": {
+                  "index": {
+                    "type": "integer"
+                  },
+                  "departure": {
+                    "type": "string"
+                  },
+                  "originId": {
+                    "type": "string"
+                  },
+                  "destinationId": {
+                    "type": "string"
+                  },
+                  "nearByOriginId": {
+                    "type": "boolean"
+                  },
+                  "nearByDestinationId": {
+                    "type": "boolean"
+                  },
+                  "preferredCabin": {
+                    "type": "string"
+                  },
+                  "nonstop": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "index",
+                  "departure",
+                  "originId",
+                  "destinationId",
+                  "nearByOriginId",
+                  "nearByDestinationId",
+                  "preferredCabin",
+                  "nonstop"
+                ]
+              }
+            ]
+          },
+          "preferredAirline": {
+            "type": "array",
+            "items": {}
+          },
+          "pax": {
+            "type": "object",
+            "properties": {
+              "adult": {
+                "type": "integer"
+              },
+              "totalSeats": {
+                "type": "integer"
+              },
+              "child": {
+                "type": "integer"
+              },
+              "infant": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "adult",
+              "totalSeats",
+              "child",
+              "infant"
+            ]
+          },
+          "query": {
+            "type": "string"
+          },
+          "ticketingType": {
+            "type": "string"
+          },
+          "cabin": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "searchType",
+          "isRoundTrip",
+          "leg",
+          "preferredAirline",
+          "pax",
+          "query",
+          "ticketingType",
+          "cabin"
+        ]
+      }
+    },
+    "required": [
+      "next",
+      "request"
+    ]
+  }

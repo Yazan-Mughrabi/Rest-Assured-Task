@@ -1,0 +1,140 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "next": {
+        "type": "object",
+        "properties": {
+          "hashedKey": {
+            "type": "string"
+          },
+          "nid": {
+            "type": "string"
+          },
+          "get": {
+            "type": "array",
+            "items": {}
+          },
+          "let": {
+            "type": "array",
+            "items": [
+              {
+                "type": "object",
+                "properties": {
+                  "cid": {
+                    "type": "string"
+                  },
+                  "info": {
+                    "type": "object",
+                    "properties": {
+                      "uid": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "chnr": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "uid",
+                      "code",
+                      "chnr"
+                    ]
+                  }
+                },
+                "required": [
+                  "cid",
+                  "info"
+                ]
+              }
+            ]
+          },
+          "hasBackupGDSResults": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "hashedKey",
+          "nid",
+          "get",
+          "let",
+          "hasBackupGDSResults"
+        ]
+      },
+      "res": {
+        "type": "array",
+        "items": [
+          {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "properties": {
+                  "error": {
+                    "type": "array",
+                    "items": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "message": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "message"
+                        ]
+                      }
+                    ]
+                  },
+                  "provider": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "error",
+                  "provider"
+                ]
+              },
+              "cid": {
+                "type": "string"
+              },
+              "info": {
+                "type": "object",
+                "properties": {
+                  "uid": {
+                    "type": "string"
+                  },
+                  "code": {
+                    "type": "string"
+                  },
+                  "chnr": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "uid",
+                  "code",
+                  "chnr"
+                ]
+              },
+              "status": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "data",
+              "cid",
+              "info",
+              "status"
+            ]
+          }
+        ]
+      }
+    },
+    "required": [
+      "next",
+      "res"
+    ]
+  }
